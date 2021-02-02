@@ -1,0 +1,5 @@
+export {IQuotes} from './IQuotes'
+export {IQuotesApprovalStatus} from './IQuotesApprovalStatus'
+export {IQuotesProducts} from './IQuotesProducts'
+export {IQuotesProductsParts} from './IQuotesProductsParts'
+export {IQuotesSections} from './IQuotesSections'

@@ -1,0 +1,1 @@
+export {IOtherProperties} from './IOtherProperties'

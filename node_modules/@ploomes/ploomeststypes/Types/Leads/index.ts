@@ -1,0 +1,7 @@
+export {ILeadsConvertionObject} from './ILeadConvertionObject'
+export {ILeads} from './ILeads'
+export {ILeadsDiscardReasons} from './ILeadsDiscardReasons'
+export {ILeadsHistory} from './ILeadsHistory'
+export {ILeadsPhones} from './ILeadsPhones'
+export {ILeadsReminders} from './ILeadsReminders'
+export {ILeadsStatus} from './ILeadsStatus'

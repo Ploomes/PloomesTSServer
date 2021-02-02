@@ -1,0 +1,1 @@
+export {IDepartments} from './IDepartments'
