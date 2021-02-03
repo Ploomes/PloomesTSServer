@@ -36,7 +36,7 @@ module.exports = (baseUrl: string): IConnection => {
 
         get : (url: string):Promise<any> => {
             return new Promise( (res, rej) => {
-                connection.request(url, 'GET' )
+                connection.request(url, 'GET', {} )
                 .then(
                     data => {
                         res(data)
@@ -71,7 +71,7 @@ module.exports = (baseUrl: string): IConnection => {
         
         delete : (url: string) => {
             return new Promise( (res, rej) => {
-                connection.request(url, 'DELETE' )
+                connection.request(url, 'DELETE', {} )
                 .then(
                     data => {
                         console.log(data)
@@ -81,12 +81,12 @@ module.exports = (baseUrl: string): IConnection => {
             })
         },
 
-        request : (url: string,  method: 'GET'| 'POST' | 'DELETE' | 'PATCH', body: Record<string, any> = {}) => {
+        request : (url: string,  method: 'GET'| 'POST' | 'DELETE' | 'PATCH', body?: Record<string, any> ) => {
             return new Promise( (res, rej) => {
                 axios.request(
                     {
                         method, url: connection.baseUrl + url, 
-                        headers: {'Content-Type': 'application/json', 'User-Key': connection.userKey}, data: body
+                        headers: {'Content-Type': 'application/json', 'User-Key': connection.userKey}, data: body || {}
                     }
                 )
                 .then(
