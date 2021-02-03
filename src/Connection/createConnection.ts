@@ -3,7 +3,7 @@ import { ISelf } from '@ploomes/ploomeststypes';
 import { IConnection } from './Types/IConnection';
 
 
-module.exports = (baseUrl: string): IConnection => {
+export const createConnection =  (baseUrl: string): IConnection => {
     const connection: IConnection = {
         userKey: '',
         baseUrl,

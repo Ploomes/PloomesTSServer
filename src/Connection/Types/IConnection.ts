@@ -1,7 +1,7 @@
 export interface IConnection {
     userKey: string;
     baseUrl: string;
-    login: (email, password) => Promise<string>;
+    login: (email: string, password: string) => Promise<string>;
     get: (url:string ) => Promise<any>;
     post: (url:string , body:any) => Promise<any>;
     patch: (url:string , body:any) => Promise<any>;
