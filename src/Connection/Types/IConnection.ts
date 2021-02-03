@@ -6,5 +6,5 @@ export interface IConnection {
     post: (url:string , body:any) => Promise<any>;
     patch: (url:string , body:any) => Promise<any>;
     delete: (url:string ) => Promise<any>;
-    request: (url: string,  method: 'GET'| 'POST' | 'DELETE' | 'PATCH', body?: Record<string, any>) => Promise<any>
+    request: (url: string,  method: 'GET'| 'POST' | 'DELETE' | 'PATCH', body: Record<string, any>) => Promise<any>
 }
