@@ -10,14 +10,8 @@
     "declaration": true,
     "outDir": "lib",
     "rootDir": "src",
-    "strict": true,
+    "strict": true
   },
-  "exclude": [
-    "lib",
-    "node_modules",
-    "src/**/*.spec.ts"
-  ],
-  "include": [
-    "src"
-  ]
+  "exclude": ["lib", "node_modules", "src/**/*.spec.ts"],
+  "include": ["src"]
 }

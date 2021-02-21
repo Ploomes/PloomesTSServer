@@ -1,0 +1,3 @@
+interface ConectedFieldPath {
+  FieldPathId: number;
+}
