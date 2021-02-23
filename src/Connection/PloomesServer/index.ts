@@ -56,7 +56,7 @@ export class PloomesServer {
    */
   public get(url: string): Promise<any[]> {
     return new Promise((res, rej) => {
-      res(this.request(url, 'GET'));
+      this.request(url, 'GET').then(res).catch(rej);
     });
   }
 
@@ -67,7 +67,7 @@ export class PloomesServer {
    */
   public delete(url: string): Promise<any[]> {
     return new Promise((res, rej) => {
-      res(this.request(url, 'DELETE'));
+      this.request(url, 'DELETE').then(res).catch(rej);
     });
   }
 
@@ -78,7 +78,7 @@ export class PloomesServer {
    */
   public post(url: string, body: Record<string, any>): Promise<any[]> {
     return new Promise((res, rej) => {
-      res(this.request(url, 'POST', body));
+      this.request(url, 'POST', body).then(res).catch(rej);
     });
   }
   /**
@@ -88,7 +88,7 @@ export class PloomesServer {
    */
   public patch(url: string, body: Record<string, any>): Promise<any[]> {
     return new Promise((res, rej) => {
-      res(this.request(url, 'PATCH', body));
+      this.request(url, 'PATCH', body).then(res).catch(rej);
     });
   }
 
@@ -110,11 +110,12 @@ export class PloomesServer {
         })
         .then(({ data }) => {
           if (data) {
+            console.log(data);
             res(data.value);
           }
         })
         .catch(error => {
-          throw new Error(error);
+          rej(error?.response?.data?.value || 'Invalid Request.');
         });
     });
   }

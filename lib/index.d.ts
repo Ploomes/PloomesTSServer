@@ -1,1 +1,1 @@
-export { createConnection } from "./Connection/createConnection";
+export { PloomesServer } from './Connection/PloomesServer';
