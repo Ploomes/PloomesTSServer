@@ -110,8 +110,7 @@ export class PloomesServer {
         })
         .then(({ data }) => {
           if (data) {
-            console.log(data);
-            res(data.value);
+            res(data.value || data.Image);
           }
         })
         .catch(error => {
