@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@ploomes/ploomeststypes": "git+https://github.com/Ploomes/PloomesTSTypes.git",
     "@types/express": "^4.16.1",
     "@types/node": "^14.14.22",
     "prettier": "2.2.1",
@@ -22,7 +23,6 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@ploomes/ploomeststypes": "^1.0.0",
     "axios": "^0.21.1"
   },
   "files": [
