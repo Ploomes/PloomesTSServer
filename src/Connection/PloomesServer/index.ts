@@ -7,8 +7,12 @@ export class PloomesServer {
   private userKey: string = '';
   private email: string = '';
   private psw: string = '';
+  private timeout: number = 0;
   constructor(options: IPloomesServerConstructor) {
     this.baseUrl = options.baseUrl;
+    if (options.timeout) {
+      this.timeout = options.timeout;
+    }
     switch (options.authMethod) {
       case 'validUserKey':
         this.userKey = options.userKey;
@@ -110,11 +114,23 @@ export class PloomesServer {
         })
         .then(({ data }) => {
           if (data) {
-            res(data.value || data.Image);
+            if (this.timeout) {
+              setTimeout(() => {
+                res(data.value || data.Image);
+              }, this.timeout);
+            } else {
+              res(data.value || data.Image);
+            }
           }
         })
         .catch(error => {
-          rej(error?.response?.data?.value || 'Invalid Request.');
+          if (this.timeout) {
+            setTimeout(() => {
+              rej(error?.response?.data?.value || 'Invalid Request.');
+            }, this.timeout);
+          } else {
+            rej(error?.response?.data?.value || 'Invalid Request.');
+          }
         });
     });
   }
