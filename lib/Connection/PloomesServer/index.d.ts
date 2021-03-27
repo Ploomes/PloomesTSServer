@@ -5,6 +5,7 @@ export declare class PloomesServer {
     private userKey;
     private email;
     private psw;
+    private timeout;
     constructor(options: IPloomesServerConstructor);
     /**
      * login
