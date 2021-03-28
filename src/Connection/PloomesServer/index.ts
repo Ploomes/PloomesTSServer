@@ -69,9 +69,11 @@ export class PloomesServer {
    * Deletes the Id specified at the url.
    * returns Promise<any[]>
    */
-  public delete(url: string): Promise<any[]> {
+  public delete(url: string, body?: Record<string, any>): Promise<any[]> {
     return new Promise((res, rej) => {
-      this.request(url, 'DELETE').then(res).catch(rej);
+      this.request(url, 'DELETE', body || undefined)
+        .then(res)
+        .catch(rej);
     });
   }
 
