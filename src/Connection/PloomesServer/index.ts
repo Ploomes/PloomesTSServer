@@ -123,6 +123,14 @@ export class PloomesServer {
             } else {
               res(data.value || data.Image);
             }
+          } else {
+            if (this.timeout) {
+              setTimeout(() => {
+                res([]);
+              }, this.timeout);
+            } else {
+              res([]);
+            }
           }
         })
         .catch(error => {
