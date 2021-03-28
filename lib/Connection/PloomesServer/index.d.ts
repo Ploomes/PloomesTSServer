@@ -24,7 +24,7 @@ export declare class PloomesServer {
      * Deletes the Id specified at the url.
      * returns Promise<any[]>
      */
-    delete(url: string): Promise<any[]>;
+    delete(url: string, body?: Record<string, any>): Promise<any[]>;
     /**
      * post
      * Sends a POST request to any Ploomes endpoint with provided body.
