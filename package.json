@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/devScript.ts",
     "build": "tsc",
     "build:check": "tsc --noEmit",
     "prepare": "npm run build",

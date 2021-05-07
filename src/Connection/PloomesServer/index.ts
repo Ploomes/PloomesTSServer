@@ -42,6 +42,8 @@ export class PloomesServer {
           { headers: { 'Content-Type': 'application/json' } },
         )
         .then(response => {
+          console.log('response', response);
+
           if (response.data) {
             const value: ISelf[] = response.data.value;
             if (Array.isArray(value) && value.length) {
@@ -49,7 +51,8 @@ export class PloomesServer {
             }
             res(value);
           }
-        });
+        })
+        .catch(e => e.response.data);
     });
   }
 
