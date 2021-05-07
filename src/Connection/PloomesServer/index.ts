@@ -52,7 +52,7 @@ export class PloomesServer {
             res(value);
           }
         })
-        .catch(e => rej(e.response.data));
+        .catch(e => rej(e.response));
     });
   }
 
