@@ -121,10 +121,10 @@ export class PloomesServer {
           if (data) {
             if (this.timeout) {
               setTimeout(() => {
-                res(data.value || data.Image);
+                res(data.value || data.Image || data.Values);
               }, this.timeout);
             } else {
-              res(data.value || data.Image);
+              res(data.value || data.Image || data.Values);
             }
           } else {
             if (this.timeout) {
