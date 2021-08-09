@@ -61,9 +61,9 @@ export class PloomesServer {
    * Sends a GET request to specified url.
    * returns Promise<any[]>
    */
-  public get(url: string): Promise<any[]> {
+  public get(url: string, headers: Record<string, any> = {}): Promise<any[]> {
     return new Promise((res, rej) => {
-      this.request(url, 'GET').then(res).catch(rej);
+      this.request(url, 'GET', undefined, headers).then(res).catch(rej);
     });
   }
 
@@ -72,9 +72,13 @@ export class PloomesServer {
    * Deletes the Id specified at the url.
    * returns Promise<any[]>
    */
-  public delete(url: string, body?: Record<string, any>): Promise<any[]> {
+  public delete(
+    url: string,
+    body?: Record<string, any>,
+    headers: Record<string, any> = {},
+  ): Promise<any[]> {
     return new Promise((res, rej) => {
-      this.request(url, 'DELETE', body || undefined)
+      this.request(url, 'DELETE', body || undefined, headers)
         .then(res)
         .catch(rej);
     });
@@ -85,9 +89,13 @@ export class PloomesServer {
    * Sends a POST request to any Ploomes endpoint with provided body.
    * returns Promise<any[]>
    */
-  public post(url: string, body: Record<string, any>): Promise<any[]> {
+  public post(
+    url: string,
+    body: Record<string, any>,
+    headers: Record<string, any> = {},
+  ): Promise<any[]> {
     return new Promise((res, rej) => {
-      this.request(url, 'POST', body).then(res).catch(rej);
+      this.request(url, 'POST', body, headers).then(res).catch(rej);
     });
   }
   /**
@@ -95,9 +103,13 @@ export class PloomesServer {
    * Sends a PATCH request to any ploomes endpoint with provided body, updating item with the Id provided at the url.
    * returns Promise<any[]>
    */
-  public patch(url: string, body: Record<string, any>): Promise<any[]> {
+  public patch(
+    url: string,
+    body: Record<string, any>,
+    headers: Record<string, any> = {},
+  ): Promise<any[]> {
     return new Promise((res, rej) => {
-      this.request(url, 'PATCH', body).then(res).catch(rej);
+      this.request(url, 'PATCH', body, headers).then(res).catch(rej);
     });
   }
 
@@ -105,6 +117,7 @@ export class PloomesServer {
     url: string,
     method: 'GET' | 'POST' | 'DELETE' | 'PATCH',
     body?: Record<string, any>,
+    headers: Record<string, any> = {},
   ): Promise<any[]> {
     return new Promise((res, rej) => {
       axios
@@ -115,6 +128,7 @@ export class PloomesServer {
           headers: {
             'Content-Type': 'application/json',
             'User-Key': this.userKey,
+            ...headers,
           },
         })
         .then(({ data }) => {
